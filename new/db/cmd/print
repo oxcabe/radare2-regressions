@@ -179,7 +179,7 @@ EOF
 RUN
 
 NAME=mac ls pfc.fmt
-FILE=../bins/elf/ls
+FILE=../bins/mach0/mac-ls
 EXPECT=<<EOF
 struct fmt {
     uint8_t foo; // 85
@@ -197,7 +197,7 @@ EOF
 RUN
 
 NAME=elf 64bit ls pfc.elf_header
-FILE=../bins/mach0/mac-ls
+FILE=../bins/elf/ls
 EXPECT=<<EOF
 struct elf_header {
     struct ident {
