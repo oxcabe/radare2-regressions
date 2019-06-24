@@ -1418,7 +1418,7 @@ RUN
 
 NAME=tn common
 FILE=../bins/pe/pe.exe
-CMDS<<EOF
+CMDS=<<EOF
 tna 8
 tnn 8
 tn
