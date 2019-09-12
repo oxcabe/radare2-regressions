@@ -42,6 +42,8 @@ NAME=ah
 FILE=-
 EXPECT=<<EOF
 all:
+[WARNING] Former "aho" is deprecated and has been moved to "ahd".
+[WARNING] Former "aht" is deprecated and has been moved to "aho".
  0x00000815 - 0x00000815 => immbase=17185
  0x00001337 - 0x0000133b => arch='ppc' bits=16 type='call' size=4 opcode='foo a0,33' syntax='jz' immbase=10 esil='3,eax,+=' ptr=0xc0ff33 jump=0x00804804 fail=0x00012345 ret=0x0000002a high=true stackframe=0x10
 --
@@ -58,12 +60,12 @@ ahf 0x12345
 ahF 0x10
 ahh
 ahi 10
-aho foo a0,33
+ahd foo a0,33
 ahp 0xc0ff33
 ahr 42
 ahs 4
 ahS jz
-aht call
+aho call
 
 ahi 0x4321 @ 0x0815
 ?e all:
@@ -77,13 +79,15 @@ RUN
 NAME=ah*
 FILE=-
 EXPECT=<<EOF
+[WARNING] Former "aho" is deprecated and has been moved to "ahd".
+[WARNING] Former "aht" is deprecated and has been moved to "aho".
 all:
 ahi 17185 @ 0x815
 aha ppc @ 0x1337
 ahb 16 @ 0x1337
-aht call @ 0x1337
+aho call @ 0x1337
 ahs 4 @ 0x1337
-aho foo a0,33 @ 0x1337
+ahd foo a0,33 @ 0x1337
 ahS jz @ 0x1337
 ahi 10 @ 0x1337
 ahe 3,eax,+= @ 0x1337
@@ -120,12 +124,12 @@ ahf 0x12345
 ahF 0x10
 ahh
 ahi 10
-aho foo a0,33
+ahd foo a0,33
 ahp 0xc0ff33
 ahr 42
 ahs 4
 ahS jz
-aht call
+aho call
 
 ahi 0x4321 @ 0x0815
 ?e all:
@@ -140,6 +144,8 @@ NAME=ahj
 FILE=-
 EXPECT=<<EOF
 all:
+[WARNING] Former "aho" is deprecated and has been moved to "ahd".
+[WARNING] Former "aht" is deprecated and has been moved to "aho".
 [{"from":2069,"to":2069,"immbase":17185},{"from":4919,"to":4923,"arch":"ppc","bits":16,"type":"call","size":4,"opcode":"foo a0,33","syntax":"jz","immbase":10,"esil":"3,eax,+=","ptr":12648243,"jump":8407044,"fail":74565,"ret":42,"high":true,"stackframe":16}]
 --
 at 0x1337:
@@ -155,12 +161,12 @@ ahf 0x12345
 ahF 0x10
 ahh
 ahi 10
-aho foo a0,33
+ahd foo a0,33
 ahp 0xc0ff33
 ahr 42
 ahs 4
 ahS jz
-aht call
+aho call
 
 ahi 0x4321 @ 0x0815
 ?e all:
@@ -171,12 +177,12 @@ ahj 0x1337
 EOF
 RUN
 
-NAME=aho with asm.tabs
+NAME=ahd with asm.tabs
 FILE=../bins/mach0/mac-ls
 CMDS=<<EOF
 e asm.flags=0
 pd 3
-aho hello world
+ahd hello world
 pd 3
 e asm.tabs=1
 pd 3

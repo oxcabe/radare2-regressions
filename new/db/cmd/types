@@ -583,15 +583,15 @@ EXPECT=<<EOF
 EOF
 RUN
 
-NAME=ahO and arm
+NAME=aht and arm
 FILE=-
 CMDS=<<EOF
 e asm.arch = arm
 e asm.bits = 32
 wx 082090e5040081e5
 "td struct foo {int a; int b; int c;};"
-ahO foo.c @ 0x00000000
-ahO foo.b @ 0x00000004
+aht foo.c @ 0x00000000
+aht foo.b @ 0x00000004
 ?e
 pd 2
 EOF
@@ -602,15 +602,15 @@ EXPECT=<<EOF
 EOF
 RUN
 
-NAME=ahO and mips
+NAME=aht and mips
 FILE=-
 CMDS=<<EOF
 e asm.arch = mips
 wx 08007fac040053800800538c
 "td struct foo {int a; int b; int c;};"
-ahO foo.c @ 0x00000000
-ahO foo.c @ 0x00000008
-ahO foo.b @ 0x00000004
+aht foo.c @ 0x00000000
+aht foo.c @ 0x00000008
+aht foo.b @ 0x00000004
 ?e
 pd 3
 EOF
@@ -622,17 +622,17 @@ EXPECT=<<EOF
 EOF
 RUN
 
-NAME=struct offset for dst operand with ta
+NAME=struct offset for dst operand with aht
 FILE=-
 CMDS=<<EOF
 e asm.bits = 32
 "td struct foo {int a; int b ; int c;}"
 wx 8b40048951048d500883780800
 ?e
-ahO foo.b @ 0x00000000
-ahO foo.b @ 0x00000003
-ahO foo.c @ 0x00000006
-ahO foo.c @ 0x00000009
+aht foo.b @ 0x00000000
+aht foo.b @ 0x00000003
+aht foo.c @ 0x00000006
+aht foo.c @ 0x00000009
 pd 4
 EOF
 EXPECT=<<EOF
